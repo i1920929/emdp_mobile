@@ -322,7 +322,7 @@ Widget _card() {
                 child: Text(
                   'Cancelar',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Color.fromRGBO(255, 36, 153, 1),
                     fontSize: 13,
                   ),
                 ),
