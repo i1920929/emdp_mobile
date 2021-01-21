@@ -1,126 +1,114 @@
 import 'package:flutter/material.dart';
+import 'package:emdp_mobile/screens/Principal/principalwhithmenus.screen.dart';
+import 'package:emdp_mobile/screens/Entrada/msgentrada.screen.dart';
+import 'package:emdp_mobile/screens/Principal/principal.screen.dart';
 
-class RegisterEntradaScreen extends StatelessWidget {
+class RegisterEntradaScreen extends StatefulWidget {
+  @override
+  _RegisterEntradaScreenState createState() => _RegisterEntradaScreenState();
+}
+
+class _RegisterEntradaScreenState extends State<RegisterEntradaScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 0,
-          elevation: 0,
-        ),
-        body: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/fondo.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  children: [
-                    Container(
-                      width: 180,
-                      height: 65,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/LogoEMDP.png'),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 450,
-                      height: 15,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/linea.png'),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Text(
-                      'Registrar entrada', textAlign: TextAlign.right,
-                      style: TextStyle(
-                          color: Color.fromRGBO(255, 36, 153, 1),
-                          fontSize: 15,
-                          fontWeight: FontWeight.normal),
-                      //style: GoogleFonts.getFont('Roboto'),
-                    ),
-                    SizedBox(height: 16),
-                    Container(
-                      child: Padding(
-                        padding: EdgeInsets.all(5),
-                        child: _card(),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: AppBar(
+        toolbarHeight: 0,
+        elevation: 0,
+      ),
+      drawer: Drawer(
+        child: PrincipalMenuScreen(),
+      ),
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/fondo.png'),
+            fit: BoxFit.cover,
           ),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
-        floatingActionButton: Container(
-          padding: EdgeInsets.only(left: 15, top: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
                 children: [
-                  FloatingActionButton(
-                    onPressed: () {
-                      // Se ejecuta este codigo al hacer clic en el action button
-                    },
-                    child: Icon(
-                      Icons.menu,
-                      color: Colors.white,
+                  Container(
+                    width: 180,
+                    height: 65,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/LogoEMDP.png'),
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                    backgroundColor: Color.fromRGBO(255, 36, 153, 1),
+                  ),
+                  Container(
+                    width: 450,
+                    height: 15,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/linea.png'),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'Registrar Entrada', textAlign: TextAlign.right,
+                    style: TextStyle(
+                        color: Color.fromRGBO(255, 36, 153, 1),
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal),
+                    //style: GoogleFonts.getFont('Roboto'),
+                  ),
+                  SizedBox(height: 16),
+                  Container(
+                    child: Padding(
+                      padding: EdgeInsets.all(5),
+                      child: _card(context),
+                    ),
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      floatingActionButton: Container(
+        padding: EdgeInsets.only(left: 15, top: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                FloatingActionButton(
+                  onPressed: () {
+                    _scaffoldKey.currentState.openDrawer();
+                  },
+                  child: Icon(
+                    Icons.menu,
+                    color: Colors.white,
+                  ),
+                  backgroundColor: Color.fromRGBO(255, 36, 153, 1),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
   }
 }
 
-Future<void> _login() async {
-  /*
-    print('U: ${this._usernameCtrl.text}, P: ${this._pwdCtrl.text}');
-    AuthService service = AuthService();
-    User user =
-        await service.login(this._usernameCtrl.text, this._pwdCtrl.text);
-    if (user == null) {
-      setState(() {
-        _error = 'Usuario o clave incorrecta';
-      });
-    } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomeScreen(),
-        ),
-      );
-    }
-  }
-  */
-}
-
-Widget _card() {
+Widget _card(BuildContext context) {
   return Container(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -226,7 +214,7 @@ Widget _card() {
                   ),
                 ),
                 Text(
-                  'Fecha de entrada', textAlign: TextAlign.start,
+                  'Fecha de Entrada', textAlign: TextAlign.start,
                   style: TextStyle(
                       color: Colors.black87,
                       fontSize: 10,
@@ -311,7 +299,12 @@ Widget _card() {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               FlatButton(
-                onPressed: _login,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PrincipalScreen()),
+                  );
+                },
                 minWidth: 150,
                 color: Colors.white,
                 shape: new RoundedRectangleBorder(
@@ -328,7 +321,13 @@ Widget _card() {
                 ),
               ),
               FlatButton(
-                onPressed: _login,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MsgConfirmEntradaScreen()),
+                  );
+                },
                 minWidth: 150,
                 color: Color.fromRGBO(255, 36, 153, 1),
                 shape: new RoundedRectangleBorder(

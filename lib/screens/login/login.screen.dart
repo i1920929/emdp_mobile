@@ -1,4 +1,4 @@
-//import 'package:google_fonts/google_fonts.dart';
+import 'package:emdp_mobile/screens/Principal/principal.screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -105,7 +105,13 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 16),
                     FlatButton(
-                      onPressed: _login,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PrincipalScreen()),
+                        );
+                      },
                       minWidth: 150,
                       color: Color.fromRGBO(255, 36, 153, 1),
                       shape: new RoundedRectangleBorder(
@@ -127,26 +133,4 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-Future<void> _login() async {
-  /*
-    print('U: ${this._usernameCtrl.text}, P: ${this._pwdCtrl.text}');
-    AuthService service = AuthService();
-    User user =
-        await service.login(this._usernameCtrl.text, this._pwdCtrl.text);
-    if (user == null) {
-      setState(() {
-        _error = 'Usuario o clave incorrecta';
-      });
-    } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomeScreen(),
-        ),
-      );
-    }
-  }
-  */
 }
