@@ -1,4 +1,4 @@
-import 'package:emdp_mobile/screens/Principal/principal.screen.dart';
+import 'package:emdp_mobile/screens/Principal/home.screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -108,8 +108,7 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => PrincipalScreen()),
+                          MaterialPageRoute(builder: (context) => HomePage()),
                         );
                       },
                       minWidth: 150,

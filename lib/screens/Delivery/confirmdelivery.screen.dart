@@ -1,15 +1,18 @@
+import 'package:emdp_mobile/screens/Delivery/opciondelibery.screen.dart';
 import 'package:flutter/material.dart';
+import 'package:emdp_mobile/screens/Salida/msgconfirm.screen.dart';
 
-class PrincipalScreen extends StatefulWidget {
+class ConfirmDeliveryScreen extends StatefulWidget {
   @override
-  _PrincipalScreenState createState() => _PrincipalScreenState();
+  _ConfirmDeliveryScreenState createState() => _ConfirmDeliveryScreenState();
 }
 
-class _PrincipalScreenState extends State<PrincipalScreen> {
+class _ConfirmDeliveryScreenState extends State<ConfirmDeliveryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(100, 100, 100, 0.5),
         toolbarHeight: 0,
         elevation: 0,
       ),
@@ -50,19 +53,9 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
-                  Text(
-                    'Bienvenido, Yerald',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    //style: GoogleFonts.getFont('Roboto'),
-                  ),
                   SizedBox(height: 15),
                   Text(
-                    'Lista de productos en almacén',
+                    'Confirmacion de Delivery',
                     style: TextStyle(
                         color: Color.fromRGBO(255, 36, 153, 1),
                         fontSize: 15,
@@ -97,15 +90,85 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
                   ),
                   SizedBox(height: 16),
                   Container(
-                    width: 350.0,
-                    height: 320,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        FlatButton(
+                          onPressed: _login,
+                          minWidth: 150,
+                          color: Color.fromRGBO(255, 36, 153, 1),
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(10.0)),
+                          child: Text(
+                            'Pendientes',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                            ),
+                          ),
+                        ),
+                        FlatButton(
+                          onPressed: _login,
+                          minWidth: 150,
+                          color: Color.fromRGBO(255, 36, 153, 1),
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(10.0)),
+                          child: Text(
+                            'Realizados',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Lista de pendientes',
+                    style: TextStyle(
+                        color: Color.fromRGBO(255, 36, 153, 1),
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal),
+                    //style: GoogleFonts.getFont('Roboto'),
+                  ),
+                  SizedBox(height: 10),
+                  Container(
+                    width: 320.0,
+                    height: 280,
                     color: Colors.grey.withOpacity(0),
                     child: ListView(
                       children: [
-                        _pendientes(),
-                        _pendientes(),
-                        _pendientes(),
+                        _pendientes(context),
+                        _pendientes(context),
+                        _pendientes(context),
                       ],
+                    ),
+                  ),
+                  FlatButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => OpcionDeliveryScreen()),
+                      );
+                    },
+                    minWidth: 150,
+                    color: Colors.white,
+                    shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0),
+                      side: const BorderSide(
+                          color: Color.fromRGBO(255, 36, 153, 1), width: 1.0),
+                    ),
+                    child: Text(
+                      'Volver',
+                      style: TextStyle(
+                        color: Color.fromRGBO(255, 36, 153, 1),
+                        fontSize: 13,
+                      ),
                     ),
                   ),
                 ],
@@ -118,33 +181,13 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
   }
 }
 
-Future<void> _login() async {
-  /*
-    print('U: ${this._usernameCtrl.text}, P: ${this._pwdCtrl.text}');
-    AuthService service = AuthService();
-    User user =
-        await service.login(this._usernameCtrl.text, this._pwdCtrl.text);
-    if (user == null) {
-      setState(() {
-        _error = 'Usuario o clave incorrecta';
-      });
-    } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomeScreen(),
-        ),
-      );
-    }
-  }
-  */
-}
+Future<void> _login() async {}
 
-Widget _pendientes() {
+Widget _pendientes(BuildContext context) {
   return Container(
     margin: EdgeInsets.all(5),
     height: 100,
-    width: 150,
+    width: 80,
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.only(
@@ -161,11 +204,11 @@ Widget _pendientes() {
         ),
       ],
     ),
-    child: _pendetails(),
+    child: _pendetails(context),
   );
 }
 
-Widget _pendetails() {
+Widget _pendetails(BuildContext context) {
   return Container(
     padding: EdgeInsets.all(10),
     child: Row(
@@ -209,7 +252,7 @@ Widget _pendetails() {
                 child: Row(
                   children: [
                     Text(
-                      'Stock Actual: ',
+                      'Ticket: ',
                       style: TextStyle(
                         color: Color.fromRGBO(255, 36, 153, 1),
                         fontSize: 11,
@@ -218,7 +261,7 @@ Widget _pendetails() {
                       //style: GoogleFonts.getFont('Roboto'),
                     ),
                     Text(
-                      '13',
+                      '13254',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 11,
@@ -237,7 +280,7 @@ Widget _pendetails() {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Detalles: ',
+                      'Cliente(a) ',
                       style: TextStyle(
                         color: Color.fromRGBO(255, 36, 153, 1),
                         fontSize: 11,
@@ -245,7 +288,7 @@ Widget _pendetails() {
                       ),
                     ),
                     Text(
-                      'Con detalles hermosos y decoraciones.',
+                      'Rosa Barrera Gilvonio',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 11,
@@ -265,7 +308,7 @@ Widget _pendetails() {
           shape: new RoundedRectangleBorder(
               borderRadius: new BorderRadius.circular(10.0)),
           child: Text(
-            'Añadir',
+            'Confirmar',
             style: TextStyle(
               color: Colors.white,
               fontSize: 11,

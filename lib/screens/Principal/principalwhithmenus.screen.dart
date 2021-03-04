@@ -1,4 +1,4 @@
-import 'package:emdp_mobile/screens/Empleados/opcionuser.screen.dart';
+import 'package:emdp_mobile/screens/Delivery/opciondelibery.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:emdp_mobile/screens/login/login.screen.dart';
 
@@ -67,7 +67,7 @@ class PrincipalMenuScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => OpcionUserScreen(),
+                  builder: (context) => OpcionDeliveryScreen(),
                 ),
               );
             },

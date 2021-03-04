@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:emdp_mobile/screens/Principal/principalwhithmenus.screen.dart';
 import 'package:emdp_mobile/screens/Principal/principal.screen.dart';
+import 'package:emdp_mobile/screens/Principal/home.screen.dart';
 
-class MsgEmployeeScreen extends StatefulWidget {
+class MsgConfirmDeliveryScreen extends StatefulWidget {
   @override
-  _MsgEmployeeScreenState createState() => _MsgEmployeeScreenState();
+  _MsgConfirmDeliveryScreenState createState() =>
+      _MsgConfirmDeliveryScreenState();
 }
 
-class _MsgEmployeeScreenState extends State<MsgEmployeeScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+class _MsgConfirmDeliveryScreenState extends State<MsgConfirmDeliveryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         toolbarHeight: 0,
         elevation: 0,
@@ -77,8 +77,7 @@ class _MsgEmployeeScreenState extends State<MsgEmployeeScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => PrincipalScreen()),
+                        MaterialPageRoute(builder: (context) => HomePage()),
                       );
                     },
                     minWidth: 150,
@@ -98,30 +97,6 @@ class _MsgEmployeeScreenState extends State<MsgEmployeeScreen> {
                   ),
                 ],
               ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
-      floatingActionButton: Container(
-        padding: EdgeInsets.only(left: 15, top: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FloatingActionButton(
-                  onPressed: () {
-                    _scaffoldKey.currentState.openDrawer();
-                  },
-                  child: Icon(
-                    Icons.menu,
-                    color: Colors.white,
-                  ),
-                  backgroundColor: Color.fromRGBO(255, 36, 153, 1),
-                ),
-              ],
             ),
           ],
         ),

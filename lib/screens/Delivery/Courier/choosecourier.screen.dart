@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
-class PrincipalScreen extends StatefulWidget {
+import '../registerdelivery.screen.dart';
+
+class CourierScreen extends StatefulWidget {
   @override
-  _PrincipalScreenState createState() => _PrincipalScreenState();
+  _CourierScreenState createState() => _CourierScreenState();
 }
 
-class _PrincipalScreenState extends State<PrincipalScreen> {
+class _CourierScreenState extends State<CourierScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(100, 100, 100, 0.5),
         toolbarHeight: 0,
         elevation: 0,
       ),
@@ -50,19 +53,9 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
-                  Text(
-                    'Bienvenido, Yerald',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    //style: GoogleFonts.getFont('Roboto'),
-                  ),
                   SizedBox(height: 15),
                   Text(
-                    'Lista de productos en almacén',
+                    'Lista de Couriers',
                     style: TextStyle(
                         color: Color.fromRGBO(255, 36, 153, 1),
                         fontSize: 15,
@@ -98,13 +91,14 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
                   SizedBox(height: 16),
                   Container(
                     width: 350.0,
-                    height: 320,
+                    height: 300,
                     color: Colors.grey.withOpacity(0),
                     child: ListView(
                       children: [
-                        _pendientes(),
-                        _pendientes(),
-                        _pendientes(),
+                        _pendientes(context),
+                        _pendientes(context),
+                        _pendientes(context),
+                        _pendientes(context),
                       ],
                     ),
                   ),
@@ -140,11 +134,11 @@ Future<void> _login() async {
   */
 }
 
-Widget _pendientes() {
+Widget _pendientes(BuildContext context) {
   return Container(
     margin: EdgeInsets.all(5),
     height: 100,
-    width: 150,
+    width: 80,
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.only(
@@ -161,22 +155,21 @@ Widget _pendientes() {
         ),
       ],
     ),
-    child: _pendetails(),
+    child: _pendetails(context),
   );
 }
 
-Widget _pendetails() {
+Widget _pendetails(BuildContext context) {
   return Container(
     padding: EdgeInsets.all(10),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          width: 60,
-          height: 70,
-          margin: EdgeInsets.all(5),
+          width: 50,
+          height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10),
@@ -184,32 +177,32 @@ Widget _pendetails() {
                 bottomLeft: Radius.circular(10),
                 bottomRight: Radius.circular(10)),
             image: DecorationImage(
-              image: AssetImage('assets/images/product.jpg'),
+              image: AssetImage('assets/images/employee.png'),
               fit: BoxFit.fill,
             ),
           ),
         ),
         Expanded(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Peluche Rosado de felpa',
+                'Yerald Sinche',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 12,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.normal,
                 ),
                 //style: GoogleFonts.getFont('Roboto'),
               ),
               Container(
-                padding: EdgeInsets.all(2),
+                padding: EdgeInsets.all(5),
                 child: Row(
                   children: [
                     Text(
-                      'Stock Actual: ',
+                      'RUC: ',
                       style: TextStyle(
                         color: Color.fromRGBO(255, 36, 153, 1),
                         fontSize: 11,
@@ -218,7 +211,7 @@ Widget _pendetails() {
                       //style: GoogleFonts.getFont('Roboto'),
                     ),
                     Text(
-                      '13',
+                      '12548961234',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 11,
@@ -231,26 +224,25 @@ Widget _pendetails() {
               ),
               Container(
                 padding: EdgeInsets.all(5),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   children: [
                     Text(
-                      'Detalles: ',
+                      'Telefono: ',
                       style: TextStyle(
                         color: Color.fromRGBO(255, 36, 153, 1),
                         fontSize: 11,
                         fontWeight: FontWeight.normal,
                       ),
+                      //style: GoogleFonts.getFont('Roboto'),
                     ),
                     Text(
-                      'Con detalles hermosos y decoraciones.',
+                      '986352021',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 11,
                         fontWeight: FontWeight.normal,
                       ),
+                      //style: GoogleFonts.getFont('Roboto'),
                     ),
                   ],
                 ),
@@ -258,20 +250,26 @@ Widget _pendetails() {
             ],
           ),
         ),
-        FlatButton(
-          onPressed: _login,
-          minWidth: 50,
+        Expanded(
+            child: FlatButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => RegisterDeliveryScreen()),
+            );
+          },
+          minWidth: 150,
           color: Color.fromRGBO(255, 36, 153, 1),
           shape: new RoundedRectangleBorder(
               borderRadius: new BorderRadius.circular(10.0)),
           child: Text(
-            'Añadir',
+            'Elegir',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 11,
+              fontSize: 13,
             ),
           ),
-        ),
+        )),
       ],
     ),
   );
