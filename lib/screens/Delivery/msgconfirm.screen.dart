@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:emdp_mobile/screens/Principal/principalwhithmenus.screen.dart';
-import 'package:emdp_mobile/screens/Principal/principal.screen.dart';
 import 'package:emdp_mobile/screens/Principal/home.screen.dart';
 
 class MsgConfirmDeliveryScreen extends StatefulWidget {
@@ -59,7 +58,7 @@ class _MsgConfirmDeliveryScreenState extends State<MsgConfirmDeliveryScreen> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Registro de empleado', textAlign: TextAlign.right,
+                    'Confirmación de Delivery', textAlign: TextAlign.right,
                     style: TextStyle(
                         color: Color.fromRGBO(255, 36, 153, 1),
                         fontSize: 17,
@@ -166,7 +165,7 @@ Widget _card() {
                 ),
                 SizedBox(height: 16),
                 Text(
-                  '¡Tu registro a sido satisfactorio!',
+                  '¡Tu confirmación a sido registrado satisfactoriamente!',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Color.fromRGBO(255, 36, 153, 1),

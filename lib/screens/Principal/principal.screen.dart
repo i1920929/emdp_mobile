@@ -9,16 +9,22 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         toolbarHeight: 0,
         elevation: 0,
       ),
       body: Container(
-        width: double.infinity,
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/fondo.png'),
-            fit: BoxFit.cover,
+          gradient: LinearGradient(
+            colors: [
+              Color.fromRGBO(255, 36, 153, 1),
+              Colors.pink[100],
+              Colors.white,
+              Colors.white,
+            ],
+            begin: FractionalOffset.bottomCenter,
+            end: FractionalOffset.topCenter,
           ),
         ),
         child: Column(
@@ -30,6 +36,18 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(
+                          Icons.shopping_bag,
+                          color: Color.fromRGBO(255, 36, 153, 1),
+                        ),
+                        Text('Items en 0'),
+                      ],
+                    ),
+                  ),
                   Container(
                     width: 180,
                     height: 65,
@@ -98,7 +116,7 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
                   SizedBox(height: 16),
                   Container(
                     width: 350.0,
-                    height: 320,
+                    height: 300,
                     color: Colors.grey.withOpacity(0),
                     child: ListView(
                       children: [

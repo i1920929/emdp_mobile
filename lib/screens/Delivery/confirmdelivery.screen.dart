@@ -1,6 +1,6 @@
-import 'package:emdp_mobile/screens/Delivery/opciondelibery.screen.dart';
+import 'package:emdp_mobile/screens/Delivery/msgconfirm.screen.dart';
+import 'package:emdp_mobile/screens/Principal/home.screen.dart';
 import 'package:flutter/material.dart';
-import 'package:emdp_mobile/screens/Salida/msgconfirm.screen.dart';
 
 class ConfirmDeliveryScreen extends StatefulWidget {
   @override
@@ -152,8 +152,7 @@ class _ConfirmDeliveryScreenState extends State<ConfirmDeliveryScreen> {
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => OpcionDeliveryScreen()),
+                        MaterialPageRoute(builder: (context) => HomePage()),
                       );
                     },
                     minWidth: 150,
@@ -302,7 +301,13 @@ Widget _pendetails(BuildContext context) {
           ),
         ),
         FlatButton(
-          onPressed: _login,
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => MsgConfirmDeliveryScreen()),
+            );
+          },
           minWidth: 50,
           color: Color.fromRGBO(255, 36, 153, 1),
           shape: new RoundedRectangleBorder(

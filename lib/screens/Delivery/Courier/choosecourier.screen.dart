@@ -112,28 +112,6 @@ class _CourierScreenState extends State<CourierScreen> {
   }
 }
 
-Future<void> _login() async {
-  /*
-    print('U: ${this._usernameCtrl.text}, P: ${this._pwdCtrl.text}');
-    AuthService service = AuthService();
-    User user =
-        await service.login(this._usernameCtrl.text, this._pwdCtrl.text);
-    if (user == null) {
-      setState(() {
-        _error = 'Usuario o clave incorrecta';
-      });
-    } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomeScreen(),
-        ),
-      );
-    }
-  }
-  */
-}
-
 Widget _pendientes(BuildContext context) {
   return Container(
     margin: EdgeInsets.all(5),

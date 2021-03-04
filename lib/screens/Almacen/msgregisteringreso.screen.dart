@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:emdp_mobile/screens/Principal/principalwhithmenus.screen.dart';
 import 'package:emdp_mobile/screens/Principal/home.screen.dart';
 
-class MsgRegisterEmployeeScreen extends StatefulWidget {
+class MsgRegisterAlmacenScreen extends StatefulWidget {
   @override
-  _MsgRegisterEmployeeScreenState createState() =>
-      _MsgRegisterEmployeeScreenState();
+  _MsgRegisterAlmacenScreenState createState() =>
+      _MsgRegisterAlmacenScreenState();
 }
 
-class _MsgRegisterEmployeeScreenState extends State<MsgRegisterEmployeeScreen> {
+class _MsgRegisterAlmacenScreenState extends State<MsgRegisterAlmacenScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +58,8 @@ class _MsgRegisterEmployeeScreenState extends State<MsgRegisterEmployeeScreen> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Registro de Delibery', textAlign: TextAlign.right,
+                    'Registro de ingreso de productos',
+                    textAlign: TextAlign.right,
                     style: TextStyle(
                         color: Color.fromRGBO(255, 36, 153, 1),
                         fontSize: 17,
@@ -165,7 +166,7 @@ Widget _card() {
                 ),
                 SizedBox(height: 16),
                 Text(
-                  '¡Tu registro a sido satisfactorio!',
+                  '¡El ingreso de productos  a sido registrado satisfactoriamente!',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Color.fromRGBO(255, 36, 153, 1),

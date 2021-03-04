@@ -1,5 +1,7 @@
+import 'package:emdp_mobile/screens/Almacen/carritoalmacen.screen.dart';
 import 'package:emdp_mobile/screens/Principal/principal.screen.dart';
 import 'package:emdp_mobile/screens/Delivery/opciondelibery.screen.dart';
+import 'package:emdp_mobile/screens/Profile/profile.screen.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,8 +14,8 @@ class _HomePageState extends State<HomePage> {
   List<Widget> _widgetOptions = <Widget>[
     PrincipalScreen(),
     OpcionDeliveryScreen(),
-    Text('Envios Screen'),
-    Text('Profile Screen'),
+    CarritoAlmacenScreen(),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
